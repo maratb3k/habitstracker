@@ -14,6 +14,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByEmail(String email);
 
+    public User findByPasswordResetToken(String token);
+
     @Transactional
     @Modifying
     @Query("UPDATE User a " +

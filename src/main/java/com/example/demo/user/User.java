@@ -33,6 +33,9 @@ public class User implements UserDetails {
     private String lastName;
     private String email;
     private String password;
+
+    @Column(name = "reset_password_token")
+    private String passwordResetToken;
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
     private Boolean locked = false;
@@ -71,6 +74,14 @@ public class User implements UserDetails {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getPasswordResetToken() {
+        return passwordResetToken;
+    }
+
+    public void setPasswordResetToken(String passwordResetToken) {
+        this.passwordResetToken = passwordResetToken;
     }
 
     @Override
